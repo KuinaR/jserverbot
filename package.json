@@ -18,6 +18,8 @@
   "homepage": "https://github.com/KuinaR/jserverbot#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "file-type": "^10.9.0"
+    "file-type": "^10.9.0",
+    "html": "^1.0.0",
+    "read-chunk": "^3.1.0"
   }
 }

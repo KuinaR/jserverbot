@@ -1,4 +1,6 @@
 const express = require("express");
+const filetype = require("file-type");
+const http = require('http');
 var app = express();
 var bodyParser = require('body-parser');
 var orders = [];
@@ -79,8 +81,25 @@ app.post('/botorder/:order', function(req, res){
     res.end('OK');
 })
 
-app.post('/detectfiletype', function(){
-    
+app.post('/detectfiletype', function(req, res){
+    var type;
+    var json = "";
+    console.log("The URL is: " + req.body.url);
+    http.get(req.body.url, response => {
+        response.on('readable', () => {
+            const chunk = response.read(filetype.minimumBytes);
+            response.destroy();
+            //type = filetype(chunk);
+            //res.end('type');
+            if(filetype(chunk) != null){
+                type = JSON.stringify(filetype(chunk));
+                res.end(type);
+                answer = true;
+            }
+            
+            //=> {ext: 'gif', mime: 'image/gif'}
+        });
+    })
 })
 
 
