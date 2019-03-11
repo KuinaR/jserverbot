@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/KuinaR/jserverbot/issues"
   },
-  "homepage": "https://github.com/KuinaR/jserverbot#readme"
+  "homepage": "https://github.com/KuinaR/jserverbot#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "file-type": "^10.9.0"
+  }
 }
